@@ -354,7 +354,6 @@ export default {
 
       await this.axios.post(cfg.apiUrl + 'submitReport.php', fd)
         .then(res => {
-          console.log(res.data)
           if (res.data.success) {
             this.$swal({
               icon: 'success',
