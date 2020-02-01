@@ -16,4 +16,5 @@
 - `yarn build` 建置
 ### 後台
 - 切換至 `backend` 分支
+- 將 `bfv.sql` 匯入資料庫
 - 在 `configs.php` 填入設定
