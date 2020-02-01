@@ -1,0 +1,198 @@
+$colorEnemy = #a93031
+$colorFriend = #56a2bf
+$colorGlassBg = #0009
+$colorGlassBgHover = #999d
+
+@keyframes top-v
+  0%
+    stroke-dashoffset 255.788
+  20%
+    stroke-dashoffset 255.788
+  80%
+    stroke-dashoffset 0
+  100%
+    stroke-dashoffset 0
+
+@keyframes left-v
+  0%
+    stroke-dashoffset 198.324
+  20%
+    stroke-dashoffset 198.324
+  80%
+    stroke-dashoffset 0
+  100%
+    stroke-dashoffset 0
+
+@keyframes right-v
+  0%
+    stroke-dashoffset 200.801
+  20%
+    stroke-dashoffset 200.801
+  80%
+    stroke-dashoffset 0
+  100%
+    stroke-dashoffset 0
+
+@keyframes bottom-inner-v
+  0%
+    stroke-dashoffset 283.791
+  20%
+    stroke-dashoffset 283.791
+  80%
+    stroke-dashoffset 0
+  100%
+    stroke-dashoffset 0
+
+@keyframes bottom-outer-v
+  0%
+    stroke-dashoffset 536.971
+  20%
+    stroke-dashoffset 536.971
+  80%
+    stroke-dashoffset 0
+  100%
+    stroke-dashoffset 0
+
+@keyframes bird
+  0%
+    stroke-dashoffset 1351.102
+  20%
+    stroke-dashoffset 1351.102
+  80%
+    stroke-dashoffset 0
+  100%
+    stroke-dashoffset 0
+
+body
+  font-family var(--font-family-sans-serif), "Noto Sans TC"
+
+  #app
+    .fade-enter-active,
+    .fade-leave-active
+      transition opacity .5s
+    .fade-enter, 
+    .fade-leave-to
+      opacity 0
+    svg.icon
+      height 6.25rem
+      width 6.25rem
+      margin-bottom 2rem
+
+      path
+        stroke #fff
+        stroke-width 3
+        stroke-miterlimit 10
+        fill none
+
+        &.top-v
+          stroke-dasharray 255.788
+          stroke-dashoffset 255.788
+          animation top-v 3s ease 0s infinite alternate both
+        &.left-v
+          stroke-dasharray 198.324
+          stroke-dashoffset 198.324
+          animation left-v 3s ease 0s infinite alternate both
+        &.right-v
+          stroke-dasharray 200.801
+          stroke-dashoffset 200.801
+          animation right-v 3s ease 0s infinite alternate both
+        &.bottom-inner-v
+          stroke-dasharray 283.791
+          stroke-dashoffset 283.791
+          animation bottom-inner-v 3s ease 0s infinite alternate both
+        &.bottom-outer-v
+          stroke-dasharray 536.971
+          stroke-dashoffset 536.971
+          animation bottom-outer-v 3s ease 0s infinite alternate both
+        &.bird
+          stroke-dasharray 1351.102
+          stroke-dashoffset 1351.102
+          animation bird 3s ease 0s infinite alternate both
+
+    .text-enemy
+      color $colorEnemy
+    .text-friend
+      color $colorFriend
+    .bg-enemy
+      background $colorEnemy
+    .bg-friend
+      background $colorFriend
+    #bg
+      background-attachment fixed
+      background-position center
+      background-size cover
+      background-position center
+      height 100vh
+      width 100vw
+      overflow hidden
+      filter brightness(0.4)
+      position fixed
+      z-index -1
+    #loading
+      position fixed
+      z-index 9999
+      height 100vh
+      width 100vw
+      display flex
+      justify-content center
+      align-items center
+    #datatable
+      table
+        backdrop-filter blur(2px)
+        background $colorGlassBg
+        color #fff
+        tbody 
+          tr
+            margin-top 1px
+            &:not(.table-enemy):hover
+              background $colorGlassBgHover
+            &.table-enemy
+              background $colorEnemy
+          td
+            border-top none
+      [aria-sort="ascending"]
+        background-image url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='101' height='101' view-box='0 0 101 101' preserveAspectRatio='none'%3e%3cpath fill='white' d='M51 1l25 23 24 22H1l25-22z'/%3e%3cpath fill='white' opacity='.3' d='M51 101l25-23 24-22H1l25 22z'/%3e%3c/svg%3e")
+      [aria-sort="descending"]
+        background-image url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='101' height='101' view-box='0 0 101 101' preserveAspectRatio='none'%3e%3cpath fill='white' opacity='.3' d='M51 1l25 23 24 22H1l25-22z'/%3e%3cpath fill='white' d='M51 101l25-23 24-22H1l25 22z'/%3e%3c/svg%3e")
+      [aria-sort="none"]
+        background-image url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='101' height='101' view-box='0 0 101 101' preserveAspectRatio='none'%3e%3cpath fill='white' opacity='.3' d='M51 1l25 23 24 22H1l25-22zM51 101l25-23 24-22H1l25 22z'/%3e%3c/svg%3e")
+      .pagination
+        justify-content flex-end
+        .page-item .page-link
+            background $colorGlassBg !important
+            color #fff
+        .page-item.active .page-link
+            background #fff !important
+            color #000
+        .page-item:hover
+            background $colorGlassBgHover !important
+
+@media (max-width: 767px)
+  #app
+    #datatable
+      min-width: 100%
+      thead tr
+        display none !important
+      tbody
+        tr
+          display block
+          
+          &:not(:first-child)
+            border-top 1px solid white
+        td
+          text-align left
+          font-size 15px
+          overflow hidden
+          display block
+          border none
+
+          &:before
+            content attr(data-th) " : "
+            display inline-block
+            text-transform uppercase
+            font-weight bold
+            margin-right 10px
+      .info
+        text-align center
+      .pagination
+        justify-content center
