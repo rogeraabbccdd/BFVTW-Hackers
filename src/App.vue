@@ -39,7 +39,7 @@
             b-col.my-5.text-center(cols="12")
               h4 總資料最後更新時間: {{ last_update }}
               p.d-inline-block.px-3.text-white.bg-enemy
-                | 紅底標記代表玩家的擊殺數已經一週沒有變動，視為已封鎖
+                | 紅底標記代表玩家的擊殺數已經兩週沒有變動，視為已封鎖
           b-row#datatable
             b-col.my-1.mr-auto(md='4')
               b-form-group.mb-0(label='搜尋資料' label-cols='4' label-cols-lg='3' label-size='sm' label-for='filterInput')
@@ -432,7 +432,7 @@ export default {
           const lu = new Date(this.last_update)
           for (const i in this.hackers) {
             const hlu = new Date(this.hackers[i].last_update)
-            if (parseInt(lu - hlu) / 1000 / 60 / 60 / 24 >= 7) {
+            if (parseInt(lu - hlu) / 1000 / 60 / 60 / 24 / 7 >= 2) {
               this.hackers[i]._rowVariant = 'enemy'
             } else this.hackers[i]._rowVariant = ''
 
