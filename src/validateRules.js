@@ -7,7 +7,7 @@ extend('required', {
 })
 
 extend('name', value => {
-  const regExp = /^[A-Za-z0-9]{4,16}$/g
+  const regExp = /^[A-Za-z0-9\-_]{4,16}$/g
   const match = value.match(regExp)
   if (!match) return '格式錯誤'
   else return true
