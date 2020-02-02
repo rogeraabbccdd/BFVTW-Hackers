@@ -12,10 +12,14 @@ import { faExternalLinkAlt, faExclamationTriangle, faDownload, faBan } from '@fo
 import { faYoutube } from '@fortawesome/free-brands-svg-icons'
 import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import VueExcelXlsx from 'vue-excel-xlsx'
+import VueGitHubButtons from 'vue-github-buttons'
+import 'vue-github-buttons/dist/vue-github-buttons.css'
+
 import './plugins/bootstrap-vue'
 import './styles/bfv.stylus'
 import './registerServiceWorker'
 import './validateRules'
+
 library.add(faExternalLinkAlt, faExclamationTriangle, faDownload, faBan, faYoutube)
 
 Vue.component('ValidationProvider', ValidationProvider)
@@ -25,6 +29,7 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueSweetalert2)
 Vue.use(VueAxios, axios)
 Vue.use(VueExcelXlsx)
+Vue.use(VueGitHubButtons)
 
 Vue.config.productionTip = false
 

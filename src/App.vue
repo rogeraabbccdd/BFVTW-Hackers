@@ -75,7 +75,7 @@
               | 共 {{ hackers.length }} 項
             b-col.my-1(md="6")
               b-pagination(v-model='table.currentPage' :total-rows='hackers.length' :per-page='table.perPage' aria-controls='my-table')
-            b-col.my-5.text-center(md="12")
+            b-col.mt-5.mb-3.text-center(md="12")
               | 本平台內容僅供參考
               br
               | 資料皆由熱心玩家提供，不保證百分之百外掛
@@ -83,6 +83,11 @@
               | 玩家 ID 可以隨時修改，不保證資料準確性
               br
               | &copy; {{ new Date().getFullYear() }} Made with ❤ by Kento
+              br
+            b-col.mb-5.d-flex.justify-content-center(cols="12")
+              gh-btns-watch(slug='rogeraabbccdd/BFVTW-Hackers' show-count)
+              gh-btns-star(slug='rogeraabbccdd/BFVTW-Hackers' show-count)
+              gh-btns-fork(slug='rogeraabbccdd/BFVTW-Hackers' show-count)
         b-modal#report(
           title="回報玩家"
           @show="resetModal"
