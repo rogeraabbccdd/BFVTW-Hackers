@@ -285,6 +285,9 @@ export default {
     }
   },
   methods: {
+    gaTrack () {
+      this.$ga.page('/')
+    },
     urlTracker (name) {
       return 'https://battlefieldtracker.com/bfv/profile/origin/' + name + '/overview'
     },
@@ -468,6 +471,7 @@ export default {
     }
   },
   mounted () {
+    this.gaTrack()
     this.loadData()
   }
 }
