@@ -14,11 +14,13 @@ import { ValidationProvider, ValidationObserver } from 'vee-validate'
 import VueExcelXlsx from 'vue-excel-xlsx'
 import VueGitHubButtons from 'vue-github-buttons'
 import 'vue-github-buttons/dist/vue-github-buttons.css'
+import VueAnalytics from 'vue-analytics'
 
 import './plugins/bootstrap-vue'
 import './styles/bfv.stylus'
 import './registerServiceWorker'
 import './validateRules'
+import cfg from './config.js'
 
 library.add(faExternalLinkAlt, faExclamationTriangle, faDownload, faBan, faYoutube)
 
@@ -30,6 +32,9 @@ Vue.use(VueSweetalert2)
 Vue.use(VueAxios, axios)
 Vue.use(VueExcelXlsx)
 Vue.use(VueGitHubButtons)
+Vue.use(VueAnalytics, {
+  id: cfg.ga
+})
 
 Vue.config.productionTip = false
 
