@@ -2,7 +2,7 @@
   #app
     #bg(:style="{backgroundImage: 'url(./img/year2.jpg)'}")
     transition(name="fade")
-      #loading(v-if="state == 'loading'")
+      #loading(v-if="state === 'loading'")
         div.text-center.text-white
           svg.icon(viewBox='0 0 256 256')
             g
@@ -15,7 +15,7 @@
           br
           h3 資料載入中...
     transition(name="fade")
-      #content(v-if="state == ''")
+      #content(v-if="state === ''")
         b-navbar(toggleable='sm' type='dark' variant='faded')
           b-container
             b-navbar-brand(href='#') BFVTW 社群外掛回報系統
@@ -441,8 +441,14 @@ export default {
           })
 
           this.excel.name = 'BFVTW Hackers ' + this.last_update
-        })
-        .catch(() => {
+        }).catch(() => {})
+    },
+    async loadData () {
+      this.state = 'loading'
+      await this.fetchData()
+      await setTimeout(() => {
+        this.state = ''
+        if (this.hackers.length === 0) {
           this.last_update = '資料庫連接失敗'
           this.$swal({
             icon: 'error',
@@ -452,13 +458,7 @@ export default {
               confirmButton: 'btn btn-danger btn-lg'
             }
           })
-        })
-    },
-    async loadData () {
-      this.state = 'loading'
-      await this.fetchData()
-      await setTimeout(() => {
-        this.state = ''
+        }
       }, 2000)
     }
   },
