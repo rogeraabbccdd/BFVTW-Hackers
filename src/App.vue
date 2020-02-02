@@ -76,9 +76,13 @@
             b-col.my-1(md="6")
               b-pagination(v-model='table.currentPage' :total-rows='hackers.length' :per-page='table.perPage' aria-controls='my-table')
             b-col.my-5.text-center(md="12")
-              | &copy; {{ new Date().getFullYear() }} Made with ❤ by Kento
+              | 本平台內容僅供參考
               br
-              | 本平台資料皆由熱心玩家提供，僅供參考，本平台不負任何責任
+              | 資料皆由熱心玩家提供，不保證百分之百外掛
+              br
+              | 玩家 ID 可以隨時修改，不保證資料準確性
+              br
+              | &copy; {{ new Date().getFullYear() }} Made with ❤ by Kento
         b-modal#report(
           title="回報玩家"
           @show="resetModal"
