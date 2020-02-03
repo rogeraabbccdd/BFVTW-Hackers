@@ -235,7 +235,6 @@ export default {
           {
             key: 'video',
             label: '回報影片',
-            sortable: true,
             tdAttr: {
               'data-th': '回報影片'
             }
