@@ -15,6 +15,7 @@ import VueExcelXlsx from 'vue-excel-xlsx'
 import VueGitHubButtons from 'vue-github-buttons'
 import 'vue-github-buttons/dist/vue-github-buttons.css'
 import VueAnalytics from 'vue-analytics'
+import 'noto-sans-tc/noto_sans_tc_regular/css.css'
 
 import './plugins/bootstrap-vue'
 import './styles/bfv.stylus'
