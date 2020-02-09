@@ -436,8 +436,6 @@ export default {
             } else this.hackers[i]._rowVariant = ''
 
             this.hackers[i].video = this.hackers[i].video.length > 0 ? this.urlYoutube(this.hackers[i].video) : ''
-            this.hackers[i].last_update = new Date(this.hackers[i].last_update).toLocaleString()
-            this.hackers[i].report_date = new Date(this.hackers[i].report_date).toLocaleString()
             this.hackers[i].tracker = this.urlTracker(this.hackers[i].name)
           }
 
